@@ -28,26 +28,6 @@ var app = function(){
 
   processCats( cats );
 
-  // var newCat = document.createElement( 'ul' );
-  // newCat.classList.add( 'cat' );
-
-  // var nameEntry = document.createElement( 'li' );
-  // nameEntry.innerText = "Name: Clawscar";
-  // var foodEntry = document.createElement( 'li' );
-  // foodEntry.innerText = "Favourite food: Everything, always, but particularly biscuits and catnip";
-  // var imageEntry = document.createElement( 'li' );
-  // var image = document.createElement( 'img' );
-  // image.src = "http://i.pinimg.com/originals/5f/80/aa/5f80aa46080aa3c1c8d6da1d870ceebb.jpg"
-  // image.width = "500";
-
-  // imageEntry.appendChild( image );
-  // newCat.appendChild( nameEntry );
-  // newCat.appendChild( foodEntry );
-  // newCat.appendChild( imageEntry );
-
-  // var cats = document.querySelector( '#cats' );
-  // cats.appendChild( newCat );
-
 }
 
 var processCats = function( cats ){
@@ -57,19 +37,11 @@ var processCats = function( cats ){
 }
 
 var addCat = function( name, food, imageSRC ){
-  var newCat = document.createElement( 'ul' );
-  newCat.classList.add( 'cat' );
-
-  var nameEntry = document.createElement( 'li' );
-  nameEntry.innerText = "Name: " + name;
-
-  var foodEntry = document.createElement( 'li' );
-  foodEntry.innerText = "Favourite food: " + food;
-
-  var imageEntry = document.createElement( 'li' );
-  var image = document.createElement( 'img' );
-  image.src = imageSRC;
-  image.width = "500";
+  var newCat = createElement( { tag: "ul", class: "cat" } );   
+  var nameEntry = createElement( { tag: "li", innerText: "Name: " + name }); 
+  var foodEntry = createElement( { tag: "li", innerText: "Favourite food: " + food }); 
+  var imageEntry = createElement( { tag: "li" });
+  var image =  createElement( { tag: "img", src: imageSRC, width: "500" } ); 
 
   imageEntry.appendChild( image );
   newCat.appendChild( nameEntry );
@@ -78,6 +50,15 @@ var addCat = function( name, food, imageSRC ){
 
   var cats = document.querySelector( '#cats' );
   cats.appendChild( newCat );
+}
+
+var createElement = function( params ){
+  var element = document.createElement( params.tag );
+  if ( params.class ) element.classList.add( params.class );
+  if ( params.innerText ) element.innerText = params.innerText;
+  if ( params.src ) element.src = params.src;
+  if ( params.width ) element.width = params.width;
+  return element;
 }
 
 window.onload = app;
