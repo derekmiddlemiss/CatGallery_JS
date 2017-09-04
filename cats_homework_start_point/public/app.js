@@ -19,7 +19,7 @@ var app = function(){
   };
 
   cat4 = {
-    name: "Clawscar",
+    name: "Sackpuss",
     food: "Everything, always, but particularly biscuits and catnip",
     imageSRC: "http://i.pinimg.com/originals/5f/80/aa/5f80aa46080aa3c1c8d6da1d870ceebb.jpg"
   };
